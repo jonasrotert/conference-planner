@@ -7,9 +7,13 @@ import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -45,9 +49,16 @@ public class Conference {
 	@NotNull
 	private Date endDate;
 	
-	private Long maxCapacity;
+	@Enumerated(EnumType.STRING)
+	private ConferenceState state;
 	
-	private Date deadline;
+	@Valid
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = true)
+	private DeadlineConfiguration deadlineConfiguration;
+	
+	@Valid
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = true)
+	private CapacityConfiguration capacityConfiguration;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "conference", orphanRemoval = true)
 	private final List<Booking> bookings = new ArrayList<Booking>();

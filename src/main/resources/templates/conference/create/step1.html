@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conference Planner: Create event</title>
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light">
+		<div class="container">
+			<a class="navbar-brand" href="#">Conference Planner</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Overview</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main class="container mt-4">
+		<h1>Create a new conference</h1>
+		<p class="lead">Let's create a new conference</p>
+
+		<div class="progress mb-5 mt-5" style="height: 30px;">
+			<div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Step 1/3</div>
+		</div>
+
+
+		<form class="row g-3">
+			<div class="col-md-12">
+				<label for="title" class="form-label">Title *</label> <input type="text" class="form-control" id="title" aria-describedby="titleHelp" />
+				<div id="titleHelp" class="form-text">Please provide a title for the conference. The title helps you to distinguish between multiple conferences.</div>
+			</div>
+
+			<div class="col-md-12">
+				<label for="description" class="form-label">Description *</label>
+				<textarea class="form-control" id="description" rows="3" aria-describedby="descriptionHelp"></textarea>
+				<div id="descriptionHelp" class="form-text">Please provide a short description for the conference. The description will help your invitees to understand your invitation better. You may also provide some more information here.</div>
+			</div>
+
+			<div class="col-md-6">
+				<label for="startDate" class="form-label">When does the conference start? *</label> <input type="date" class="form-control" id="startDate" aria-describedby="startDateHelp" />
+				<div id="startDateHelp" class="form-text">If the conference is held for several days, we will later provide a plugin to organize accommodation.</div>
+			</div>
+
+			<div class="col-md-6">
+				<label for="endDate" class="form-label">When does the conference end? *</label> <input type="date" class="form-control" id="endDate" aria-describedby="endDateHelp" />
+				<div id="endDateHelp" class="form-text">If the conference is held for several days, we will later provide a plugin to organize accommodation.</div>
+			</div>
+
+			<div class="col-md-6">
+				<button type="button" class="btn btn-light">Cancel</button>
+				<button type="button" class="btn btn-primary">Next</button>
+			</div>
+		</form>
+
+
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

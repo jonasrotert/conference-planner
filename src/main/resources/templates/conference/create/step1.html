@@ -29,31 +29,31 @@
 		</div>
 
 
-		<form class="row g-3">
-			<div class="col-md-12">
-				<label for="title" class="form-label">Title *</label> <input type="text" class="form-control" id="title" aria-describedby="titleHelp" />
+		<form class="grid g-3  mb-5 mt-5" action="#" th:action="@{/conference/create/step2}" th:object="${dtoStep1}" method="post">
+			<div class="g-col-md-12">
+				<label for="title" class="form-label">Title *</label> <input type="text" class="form-control" id="title" aria-describedby="titleHelp" th:field="*{title}"/>
 				<div id="titleHelp" class="form-text">Please provide a title for the conference. The title helps you to distinguish between multiple conferences.</div>
 			</div>
 
-			<div class="col-md-12">
+			<div class="g-col-md-12">
 				<label for="description" class="form-label">Description *</label>
-				<textarea class="form-control" id="description" rows="3" aria-describedby="descriptionHelp"></textarea>
+				<textarea class="form-control" id="description" rows="3" aria-describedby="descriptionHelp" th:field="*{description}"></textarea>
 				<div id="descriptionHelp" class="form-text">Please provide a short description for the conference. The description will help your invitees to understand your invitation better. You may also provide some more information here.</div>
 			</div>
 
-			<div class="col-md-6">
-				<label for="startDate" class="form-label">When does the conference start? *</label> <input type="date" class="form-control" id="startDate" aria-describedby="startDateHelp" />
+			<div class="g-col-md-6">
+				<label for="startDate" class="form-label">When does the conference start? *</label> <input type="date" class="form-control" id="startDate" aria-describedby="startDateHelp" th:field="*{startDate}"/>
 				<div id="startDateHelp" class="form-text">If the conference is held for several days, we will later provide a plugin to organize accommodation.</div>
 			</div>
 
-			<div class="col-md-6">
-				<label for="endDate" class="form-label">When does the conference end? *</label> <input type="date" class="form-control" id="endDate" aria-describedby="endDateHelp" />
+			<div class="g-col-md-6">
+				<label for="endDate" class="form-label">When does the conference end? *</label> <input type="date" class="form-control" id="endDate" aria-describedby="endDateHelp" th:field="*{endDate}"/>
 				<div id="endDateHelp" class="form-text">If the conference is held for several days, we will later provide a plugin to organize accommodation.</div>
 			</div>
 
-			<div class="col-md-6">
+			<div class="g-col-md-12 text-end">
 				<button type="button" class="btn btn-light">Cancel</button>
-				<button type="button" class="btn btn-primary">Next</button>
+				<button type="submit" class="btn btn-primary" value="Create Conference">Next</button>
 			</div>
 		</form>
 

@@ -1,5 +1,6 @@
 package de.jonasrotert.conferenceplanner.app.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -26,6 +27,6 @@ public class DeadlineConfiguration {
 	private Boolean queueIfDeadlineExceeds;
 
 	@NotNull
-	private Date deadline;
+	private LocalDate deadline;
 
 }

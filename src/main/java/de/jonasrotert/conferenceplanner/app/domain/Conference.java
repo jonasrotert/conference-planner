@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -36,10 +37,13 @@ public class Conference {
 
 	@Id
 	@GeneratedValue
+	@Column(columnDefinition = "uuid")
 	private UUID id;
 
 	@NotBlank
 	private String title;
+
+	private String intro;
 
 	@NotBlank
 	private String description;
@@ -56,6 +60,10 @@ public class Conference {
 	@NotNull
 	private LocalDate endDate;
 
+	@Valid
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = true)
+	private Address address;
+
 	@Enumerated(EnumType.STRING)
 	private ConferenceState state;
 
@@ -66,6 +74,16 @@ public class Conference {
 	@Valid
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = true)
 	private CapacityConfiguration capacityConfiguration;
+
+	@Valid
+	@NotNull
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = false)
+	private BookingConfiguration bookingConfiguration;
+
+	@Valid
+	@NotNull
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = false)
+	private PricingConfiguration pricingConfiguration;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "conference", orphanRemoval = true)
 	private final List<Booking> bookings = new ArrayList<Booking>();

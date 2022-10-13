@@ -29,7 +29,7 @@
 		</div>
 
 
-		<form class="grid g-3  mb-5 mt-5" action="#" th:action="@{/conference/create/step3}" th:object="${dtoStep2}" method="post">
+		<form class="grid g-3  mb-5 mt-5" action="#" th:action="@{/conference/create/step2}" th:object="${dtoStep2}" method="post">
 			<div class="g-col-md-12">
 				<label for="id" class="visually-hidden">ID</label><input type="hidden" readonly id="id" aria-describedby="idHelp" th:field="*{id}" />
 				<div id="idHelp" class="visually-hidden">The given ID for the conference.</div>
@@ -52,7 +52,5 @@
 
 
 	</main>
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

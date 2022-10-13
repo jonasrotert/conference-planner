@@ -1,7 +1,6 @@
-package de.jonasrotert.conferenceplanner.app.dto;
+package de.jonasrotert.conferenceplanner.app.controller.conference.create.dto;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
@@ -21,10 +20,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @ToString
-public class CreateConferenceStep2RequestDTO {
+public class CreateConferenceStep2DTO {
 
 	@NotNull
-	private UUID id;
+	private String id;
 
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@Future

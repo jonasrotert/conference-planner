@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,26 +19,17 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-public class Address {
+public class BookingConfiguration {
 
 	@Id
 	@GeneratedValue
 	@Column(columnDefinition = "uuid")
 	private UUID id;
 
+	private Boolean askForBirthday;
 
-	private String description;
+	private Boolean askForSex;
 
-	@NotBlank
-	private String street;
-
-	@NotBlank
-	private String postalCode;
-
-	@NotBlank
-	private String village;
-
-	@NotBlank
-	private String country;
+	private Boolean askForFurtherBookings;
 
 }

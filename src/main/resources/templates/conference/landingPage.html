@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conference Planner: Create event</title>
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+
+	<header class="px-4 py-5 my-5 text-center">
+
+
+
+		<h1 class="display-5 fw-bold" th:text="${conferenceDTO.title}"></h1>
+
+		<div class="">
+			<p class="lead mb-4" th:text="${conferenceDTO.intro}"></p>
+
+
+			<p class="lead mb-4">
+				<span th:text="${#temporals.format(conferenceDTO.startDate, 'dd.MM.yyyy')}"></span> bis <span th:text="${#temporals.format(conferenceDTO.endDate, 'dd.MM.yyyy')}"></span>
+			</p>
+
+
+			<p class="lead mb-4">
+				<span th:text="${conferenceDTO.address.description}"></span><br /> <span th:text="${conferenceDTO.address.street}"></span><br /> <span th:text="${conferenceDTO.address.country}"></span>&nbsp;<span th:text="${conferenceDTO.address.postalCode}"></span>&nbsp;<span th:text="${conferenceDTO.address.village}"></span><br />
+			</p>
+
+			<!-- <iframe class="rounded-3 border shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2442.785184812233!2d9.227535308351683!3d48.88821813380796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799ce23626ba227%3A0x71fde612a826578e!2sMehrzweckhalle%20O%C3%9Fweil!5e0!3m2!1sde!2sde!4v1664916734816!5m2!1sde!2sde" width="600" height="450"
+				style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ -->
+			<div class="grid">
+				<div class="rounded-3 border shadow-lg mt-5 g-col-md-6 g-col-12 g-start-1 g-start-md-4">
+					<form class="p-4 p-md-5" action="#" th:action="@{/i/book}" th:object="${bookingDTO}" method="post">
+
+						<div class="g-col-md-12">
+							<label for="id" class="visually-hidden">ID</label><input type="hidden" readonly id="id" aria-describedby="idHelp" th:field="*{conferenceId}" />
+							<div id="idHelp" class="visually-hidden">The given ID for the conference.</div>
+						</div>
+
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="bookingFirstName" placeholder="Max" th:field="*{firstName}"> <label for="bookingFirstName">First name</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="bookingLastName" placeholder="Mustermann" th:field="*{lastName}"> <label for="bookingLastName">Last name</label>
+						</div>
+
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control" id="bookingEmail" placeholder="max.mustermann@email.de" th:field="*{email}"> <label for="bookingEmail">Email address</label>
+						</div>
+
+						<th:block th:if="${conferenceDTO.bookingConfiguration.askForBirthday}">
+							<span>if</span>
+						</th:block>
+
+						<th:block th:if="${conferenceDTO.bookingConfiguration.askForSex}">
+							<span>if</span>
+						</th:block>
+
+						<button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+						<hr class="my-4">
+						<small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</header>
+</body>
+</html>

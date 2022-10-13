@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,18 +16,23 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 @Entity
 public class Person {
 
 	@Id
 	@GeneratedValue
+	@Column(columnDefinition = "uuid")
 	private UUID id;
 
 	@NotBlank
@@ -41,12 +47,11 @@ public class Person {
 	private Date birthday;
 
 	@Enumerated(EnumType.STRING)
-	@NotNull
 	private Sex sex;
 
 	@OneToOne(orphanRemoval = true, cascade = CascadeType.ALL, optional = true)
 	private Address address;
-	
+
 	@ManyToOne
 	@NotNull
 	private Booking booking;

@@ -1,4 +1,4 @@
-package de.jonasrotert.conferenceplanner.app.dto;
+package de.jonasrotert.conferenceplanner.app.controller.conference.create.dto;
 
 import java.time.LocalDate;
 
@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @ToString
-public class CreateConferenceStep1RequestDTO {
+public class CreateConferenceStep1DTO {
 
 	@NotBlank
 	private String title;

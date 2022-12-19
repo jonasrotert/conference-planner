@@ -19,6 +19,8 @@ import lombok.experimental.SuperBuilder;
 @ToString
 public class ConferenceDTO {
 
+	private String id;
+
 	private String title;
 
 	private String intro;

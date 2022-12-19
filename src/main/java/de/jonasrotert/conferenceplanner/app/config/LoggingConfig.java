@@ -18,7 +18,7 @@ public class LoggingConfig {
 
 	@After("controllerMethods()")
 	public void logAfterControllerMethod(final JoinPoint jp) {
-		LogFactory.getLog(jp.getTarget().getClass()).info("After " + jp.getSignature().getName());
+		LogFactory.getLog(jp.getTarget().getClass()).debug("After " + jp.getSignature().getName());
 	}
 
 	@After("redirect()")
@@ -28,7 +28,7 @@ public class LoggingConfig {
 
 	@Before("controllerMethods()")
 	public void logRepositoryMethod(final JoinPoint jp) {
-		LogFactory.getLog(jp.getTarget().getClass()).info("Before " + jp.getSignature().getName());
+		LogFactory.getLog(jp.getTarget().getClass()).debug("Before " + jp.getSignature().getName());
 	}
 
 	@Pointcut("execution(org.springframework.web.servlet.view.RedirectView.new(String))")

@@ -24,10 +24,12 @@ public class ConferenceService {
 	private ConferenceRepository conferenceRepository;
 
 	public List<Conference> findAllPublished() {
+		log.info("Find all published conferences");
 		return this.conferenceRepository.findByState(ConferenceState.PUBLISHED);
 	}
 
 	public Conference loadConferenceById(final String id) {
+		log.info("Load conference by UUID {}", id);
 		return this.loadConferenceById(UUID.fromString(id));
 	}
 
